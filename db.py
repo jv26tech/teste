@@ -30,8 +30,8 @@ class DBBase:
             keys = [col for col in model.get_data().keys()]
             keysstr = ', '.join(keys)
             values = tuple(model.data[key] for key in keys)
-            query = f"INSERT INTO { model.tablename } ({ keysstr }) \
-                VALUES ({', '.join([r"%s" for v in values])}) RETURNING id;"
+            valuesstr = ', '.join(["%s" for v in values])
+            query = f"INSERT INTO { model.tablename } ({ keysstr }) VALUES ({valuesstr}) RETURNING id;"
             cursor.execute(query, values)
             id = cursor.fetchone()[0]
             self.conn.commit()
@@ -67,7 +67,8 @@ class DBBase:
             keys = [col for col in model.get_data().keys()]
             keysstr = ', '.join(keys)
             values = tuple(model.data[key] for key in keys)
-            query = f"UPDATE {model.tablename} SET {', '.join([f"{key}=%s" for key in keys])} WHERE id={id};"
+            valuesstr = ', '.join([f"{key}=%s" for key in keys])
+            query = f"UPDATE {model.tablename} SET {valuesstr} WHERE id={id};"
             cursor.execute(query, values)
             self.conn.commit()
             return id
