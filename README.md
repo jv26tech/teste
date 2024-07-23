@@ -18,12 +18,12 @@
     python -m venv venv
     ```
 
-3. Execute o ambiente virtual (Linux):
+3. Execute o ambiente virtual (*Linux*):
     ```bash
     source venv/bin/activate
     ```
 
-3. Execute o ambiente virtual (Windows):
+3. Execute o ambiente virtual (*Windows*):
      ```bash
     ./venv/Scripts/activate.bat
     ```
@@ -36,27 +36,10 @@
 5. Configure o banco de dados PostgreSQL:
     - Crie um banco de dados e atualize as informações de conexão no arquivo `.env`.
 
-6. Execute o script para criar as tabelas:
-    ```bash
-    python main.py
-    ```
 
 ## Execução
 
-1. Inicie a aplicação:
+1. Execute o script para criar as tabelas:
     ```bash
-    python app.py
+    python main.py
     ```
-
-2. Acesse a aplicação em `http://localhost:5000`.
-
-## Rotas
-
-- `GET /posts`: Lista todos os posts
-- `POST /posts`: Cria um novo post
-- `PUT /posts/<id>`: Atualiza um post existente
-- `DELETE /posts/<id>`: Exclui um post
-- `GET /users`: Lista todos os usuários
-
-## Autor
-Seu Nome Completo
