@@ -35,9 +35,9 @@ class PostModel(BaseModel):
             );
             """
 
-    def __init__(self, user_id, title, body, *args, **kwargs):
+    def __init__(self, userId, title, body, *args, **kwargs):
         self.data = {
-            'user_id':user_id,
+            'user_id':userId,
             'title':title,
             'body':body
         }

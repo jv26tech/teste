@@ -1,18 +1,14 @@
 import requests
 from config import Config
 
-class PostView:
+
+class PostService:
     """
         CRUD para interagir com o endpoint '/posts'
     """
-    BASE_URL = Config.BASE_URL
-
-    def listar(self) -> list:
-        response = requests.get(f'{self.BASE_URL}/posts')
-        if response.status_code == 200:
-            return response.json()
-        else:
-            return []
+    
+    def __init__(self, config:Config):
+        self.BASE_URL = config.BASE_URL  
 
     def criar(self, titulo, corpo, user_id) -> dict:
         payload = {
@@ -25,6 +21,20 @@ class PostView:
             return response.json()
         else:
             return None
+        
+    def retornar(self, id) -> dict:
+        response = requests.post(f'{self.BASE_URL}/posts{id}')
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
+        
+    def listar(self) -> list:
+        response = requests.get(f'{self.BASE_URL}/posts')
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return []
         
     def modificar(self, id, titulo, corpo, user_id) -> dict:
         payload = {

@@ -3,8 +3,12 @@ import os
 
 load_dotenv()
 
+class BaseConfig:
+    BASE_URL:str
+    DATABASE:str
 
-class Config:
+
+class Config(BaseConfig):
     BASE_URL = 'https://jsonplaceholder.typicode.com'
 
     DATABASE = {
@@ -14,3 +18,6 @@ class Config:
         'host': os.getenv('DB_HOST'),
         'port': os.getenv('DB_PORT')
     }
+
+class TestConfig(BaseConfig):
+    pass

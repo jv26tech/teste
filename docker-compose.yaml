@@ -1,0 +1,28 @@
+version: '3'
+services:
+  app:
+    build: .
+    command: python main.py
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    links:
+      - "db:database"
+    
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: my_user
+      POSTGRES_DB: desafio
+      POSTGRES_PASSWORD: test1234
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@domain.com
+      PGADMIN_DEFAULT_PASSWORD: SuperSecret
+    ports:
+      - "5050:80"

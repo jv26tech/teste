@@ -39,7 +39,11 @@
 
 ## Execução
 
-1. Execute o script para criar as tabelas:
+1. Execute o script para criar as tabelas e rodar comandos CRUD:
     ```bash
     python main.py
     ```
+
+
+## Autor
+Joao Victor Ferrer Morgado
