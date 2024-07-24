@@ -1,8 +1,12 @@
 # Python Web API
 
-## Requisitos
+## Requisitos (execucao por venv)
 - Python 3.10 ou superior
 - PostgreSQL
+
+## Requisitos (execucao por Docker)
+- Docker
+- docker-compose
 
 ## Instalação
 
@@ -12,8 +16,7 @@
     cd teste
     ```
 
-
-2. Crie um ambiente virtual:
+2. Crie um ambiente virtual (ou siga para execucao com docker):
     ```bash
     python -m venv venv
     ```
@@ -39,7 +42,12 @@
 
 ## Execução
 
-1. Execute o script para criar as tabelas e rodar comandos CRUD:
+1. (Docker) Execute o comando para subir os conteineres (app, postgres e pgadmin)
+    ```bash
+    docker-compose up
+    ```
+
+1. (venv) Execute o script para criar as tabelas e rodar comandos CRUD:
     ```bash
     python main.py
     ```
